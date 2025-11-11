@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/img/roundbwlogo.png">
+  <title>Cybercrime Awareness & Prevention Guide</title>
+  <style>
+    :root {
+      --bg-light: #f8f9fb;
+      --text-light: #2b2b2b;
+      --accent-light: #4b7bec;
+      --bg-dark: #1e1e2f;
+      --text-dark: #f1f1f1;
+      --accent-dark: #74b9ff;
+      --transition: 0.4s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background var(--transition), color var(--transition);
+      margin: 0;
+      padding: 0;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: linear-gradient(135deg, #4b7bec, #45aaf2);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      animation: floatHeader 3s infinite ease-in-out;
+    }
+
+    @keyframes floatHeader {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      border-radius: 50px;
+      background: var(--accent-light);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background var(--transition);
+    }
+
+    body.dark-mode .toggle-btn {
+      background: var(--accent-dark);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      background: rgba(255,255,255,0.9);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    body.dark-mode section {
+      background: rgba(255,255,255,0.05);
+    }
+
+    section:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: var(--accent-light);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    body.dark-mode h2 {
+      color: var(--accent-dark);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+  <header>
+    <h1>🛡️ Cybercrime Awareness & Prevention Guide</h1>
+    <p>Understand, identify, and prevent online threats effectively.</p>
+  </header>
+  <main>
+    <section>
+      <h2>💻 Common Cybercrime Scenarios</h2>
+      <ul>
+        <li><span class="emoji">🎣</span><strong>Phishing Attempts:</strong> You receive an email saying your bank account will be frozen unless you log in immediately. The link leads to a fake site designed to steal your password.</li>
+        <li><span class="emoji">💬</span><strong>Fake Online Seller:</strong> A social media account offers a product at a huge discount. You pay via GCash, but the seller disappears.</li>
+        <li><span class="emoji">🧑‍💻</span><strong>Hacked Social Media:</strong> Your friend’s account sends you suspicious links — they’ve been hacked, and the link contains malware.</li>
+        <li><span class="emoji">💾</span><strong>Ransomware Attack:</strong> Your files suddenly become inaccessible, and a message demands payment to unlock them.</li>
+        <li><span class="emoji">📸</span><strong>Online Harassment:</strong> Someone spreads edited photos or false rumors about you to shame or threaten you.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔐 How to Prevent Cybercrime</h2>
+      <ul>
+        <li><span class="emoji">🔑</span><strong>Strengthen Your Passwords:</strong> Use a mix of upper/lowercase letters, numbers, and symbols. Avoid birthdays or common words. Change them regularly and never reuse passwords across sites.</li>
+        <li><span class="emoji">📲</span><strong>Enable Two-Factor Authentication (2FA):</strong> Add an extra layer of security to prevent unauthorized logins even if your password is stolen.</li>
+        <li><span class="emoji">🚫</span><strong>Be Wary of Links and Attachments:</strong> Don’t click links in unsolicited emails or messages. Always verify the sender’s identity and the domain name before entering credentials.</li>
+        <li><span class="emoji">💡</span><strong>Think Before You Post:</strong> Limit the personal details you share publicly. Oversharing makes it easier for scammers to impersonate you.</li>
+        <li><span class="emoji">🔍</span><strong>Verify Online Sellers:</strong> Check for business permits, reviews, and transaction history before sending payment. Prefer cash-on-delivery options when possible.</li>
+        <li><span class="emoji">🛡️</span><strong>Install Security Software:</strong> Use reliable antivirus programs, keep them updated, and perform regular scans to detect malicious files.</li>
+        <li><span class="emoji">📚</span><strong>Stay Informed:</strong> Follow official advisories from the PNP Anti-Cybercrime Group and the National Privacy Commission. Awareness is your best defense.</li>
+        <li><span class="emoji">🔌</span><strong>Secure Your Connection:</strong> Avoid using public Wi-Fi for banking or confidential transactions. If necessary, use a VPN for added protection.</li>
+        <li><span class="emoji">💬</span><strong>Report Suspicious Activity:</strong> If you suspect fraud or cyber harassment, take screenshots, collect evidence, and report it immediately to authorities.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧭 Mindset for a Safer Digital Life</h2>
+      <ul>
+        <li><span class="emoji">🧠</span><strong>Be Skeptical:</strong> Cybercriminals exploit trust and fear. Always question unexpected messages, especially those creating urgency or panic.</li>
+        <li><span class="emoji">👀</span><strong>Double-Check Everything:</strong> Scams often use small typos in URLs or fake company logos that look almost identical to real ones. Take a few seconds to verify before acting.</li>
+        <li><span class="emoji">🕵️‍♀️</span><strong>Privacy Over Popularity:</strong> You don’t need to post every detail of your life. Protect your digital footprint the same way you protect your wallet.</li>
+        <li><span class="emoji">💬</span><strong>Talk About It:</strong> Educate family and friends about cyber risks. A well-informed community reduces the success rate of online attacks.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📞 Report Cybercrimes</h2>
+      <ul>
+        <li><span class="emoji">🚔</span><strong>PNP Anti-Cybercrime Group (ACG):</strong> Visit <a href="https://acg.pnp.gov.ph" target="_blank">acg.pnp.gov.ph</a></li>
+        <li><span class="emoji">🛡️</span><strong>National Privacy Commission (NPC):</strong> Visit <a href="https://privacy.gov.ph" target="_blank">privacy.gov.ph</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>By <strong>Ferdinand Mark B. Peña</strong></p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.toggle-btn');
+      if (document.body.classList.contains('dark-mode')) {
+        btn.textContent = '☀️ Light Mode';
+      } else {
+        btn.textContent = '🌙 Dark Mode';
+      }
+    }
+  </script>
+</body>
+</html>

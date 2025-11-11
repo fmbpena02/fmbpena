@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Privacy — Reminders for Netizens (Philippines)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/img/roundbwlogo.png">
+  <style>
+    :root{
+      --bg1:#0f172a; --bg2:#071029; --card:#0b1220; --accent1:#7c3aed; --accent2:#06b6d4; --muted:#9aa4b2; --text:#e6eef6; --glass: rgba(255,255,255,0.03);
+    }
+    body.light{
+      --bg1:#f4f6fb; --bg2:#ffffff; --card:#ffffff; --accent1:#7c3aed; --accent2:#06b6d4; --muted:#505763; --text:#1a1a1a; --glass: rgba(0,0,0,0.03);
+    }
+    *{box-sizing:border-box;transition:background .3s,color .3s}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);margin:0}
+    body{background:linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);-webkit-font-smoothing:antialiased;line-height:1.45;position:relative}
+
+    .wrap{max-width:1100px;margin:48px auto;padding:32px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .left-header{display:flex;align-items:center;gap:20px}
+    .logo{width:76px;height:76px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:22px;box-shadow:0 6px 18px rgba(7,12,29,0.7);transform:rotate(-8deg)}
+    h1{font-size:28px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .toggle-btn{cursor:pointer;border:none;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:600;box-shadow:0 6px 18px rgba(7,12,29,0.4);transition:transform .2s}
+    .toggle-btn:hover{transform:scale(1.05)}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr} .aside{order:2}}
+
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.5);border:1px solid rgba(255,255,255,0.03);}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .dot{width:12px;height:12px;border-radius:4px;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 6px 20px rgba(124,58,237,0.18);}
+
+    ul.reminders{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    @media (max-width:600px){ul.reminders{grid-template-columns:1fr}}
+    li.rem{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);display:flex;gap:12px;align-items:flex-start;transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s}
+    li.rem:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(3,6,20,0.6)}
+    .rem h4{margin:0 0 6px;font-size:14px}
+    .rem p{margin:0;color:var(--muted);font-size:13px}
+
+    .aside .stat{display:flex;flex-direction:column;gap:8px}
+    .chip{display:inline-flex;padding:6px 10px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.02);font-weight:600}
+
+    .title-underline{height:4px;width:120px;border-radius:999px;margin-top:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));transform-origin:left;animation:grow 1s cubic-bezier(.2,.9,.3,1) both}
+    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+    .reveal{opacity:0;transform:translateY(10px);animation:fadeIn .9s forwards;animation-delay:0.25s}
+    .reveal.delay{animation-delay:0.45s}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+
+    footer{margin-top:20px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+    .author{font-weight:700}
+
+    .muted{color:var(--muted);font-size:13px}
+    a.link{color:inherit;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.04)}
+
+    .bg-blob{position:absolute;right:-100px;top:-120px;width:420px;height:420px;background:radial-gradient(circle at 30% 30%, rgba(124,58,237,0.12), transparent 20%), radial-gradient(circle at 70% 70%, rgba(6,182,212,0.08), transparent 30%);filter:blur(36px);transform:rotate(12deg);opacity:.9;z-index:-1}
+
+    .legal{background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Roboto Mono,monospace;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="bg-blob" aria-hidden></div>
+  <main class="wrap">
+    <header class="reveal">
+      <div class="left-header">
+        <div class="logo">DP</div>
+        <div>
+          <h1>Data Privacy — Quick Reminders for Netizens (Philippines)</h1>
+          <p class="lead">Straight, useful, and legal — compact reminders based on RA 10173 and NPC guidance.</p>
+          <div class="title-underline"></div>
+        </div>
+      </div>
+      <button id="modeToggle" class="toggle-btn">☀️ Light Mode</button>
+    </header>
+
+    <div class="grid">
+      <section class="card reveal">
+        <div class="section-title">
+          <div class="dot" aria-hidden></div>
+          <div>
+            <strong>Top things to know</strong>
+            <div class="muted">What RA 10173 (Data Privacy Act) and NPC expect from everyone.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;display:grid;gap:12px">
+          <div class="legal">
+            <strong>Data Privacy Act (RA 10173)</strong> protects personal and sensitive personal information and gives you rights (consent, access, rectification, erasure, portability). The National Privacy Commission (NPC) enforces compliance and issues guidance.
+          </div>
+
+          <ul class="reminders" aria-live="polite">
+            <li class="rem"><div>🔐</div><div><h4>Own your consent</h4><p>Don’t give personal data unless you know why it’s collected. Consent must be informed and specific — you can withdraw it later.</p></div></li>
+            <li class="rem"><div>🕵️</div><div><h4>Think before you share</h4><p>Pictures, IDs, location, or health data can be misused. Once public, it’s hard to remove — avoid oversharing.</p></div></li>
+            <li class="rem"><div>🔑</div><div><h4>Strong, unique passwords</h4><p>Use a passphrase or password manager. Never reuse passwords across accounts.</p></div></li>
+            <li class="rem"><div>📱</div><div><h4>Enable 2‑Factor Authentication</h4><p>Prefer app-based authenticators over SMS when possible — adds a second line of defense.</p></div></li>
+            <li class="rem"><div>⚠️</div><div><h4>Watch out for phishing</h4><p>Scrutinize links, sender addresses, and requests for credentials. When in doubt — verify directly with the institution.</p></div></li>
+            <li class="rem"><div>📶</div><div><h4>Use secure networks</h4><p>Avoid performing sensitive transactions on public Wi‑Fi. Use a reputable VPN only when necessary.</p></div></li>
+            <li class="rem"><div>🧹</div><div><h4>Dispose devices safely</h4><p>Wipe devices before discarding or donating. Factory reset is not always enough — encrypt before wiping.</p></div></li>
+            <li class="rem"><div>🗂️</div><div><h4>Limit third‑party access</h4><p>Review apps and services that have access to your data. Revoke permissions you no longer use.</p></div></li>
+            <li class="rem"><div>📄</div><div><h4>Read privacy notices</h4><p>Privacy policies should state purpose, retention, and contact info. If it’s vague — assume they’ll use data beyond your control.</p></div></li>
+            <li class="rem"><div>🚨</div><div><h4>Know how to report breaches</h4><p>If your data’s exposed by an organization, they must notify affected individuals and the NPC. You can file complaints with the NPC.</p></div></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <span class="chip">Legitimate purpose</span>
+          <span class="chip">Minimal collection</span>
+          <span class="chip">Retention limits</span>
+        </div>
+      </section>
+
+      <aside class="aside reveal delay card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <strong>Quick legal notes</strong>
+            <div class="muted">Short and sharp.</div>
+          </div>
+          <div class="chip">RA 10173</div>
+        </div>
+
+        <div class="stat" style="gap:10px">
+          <div class="muted"><strong>Sensitive personal information</strong><div style="font-size:13px">(examples) race, health, sexual life, social status, biometric data, government IDs</div></div>
+          <div class="muted"><strong>Penalties</strong><div style="font-size:13px">Unauthorized processing, negligent access, or improper disposal can lead to fines and imprisonment under the Act.</div></div>
+          <div style="margin-top:8px" class="muted"><strong>NPC resources</strong><div style="font-size:13px">The National Privacy Commission publishes guides, toolkits, and a quick guide for citizens.</div></div>
+          <div style="margin-top:12px" class="legal"><strong>Top actions right now</strong><ol style="padding-left:18px;margin:8px 0 0 0"><li>Change weak or reused passwords.</li><li>Turn on 2FA for critical accounts (email, banking, social).</li><li>Review privacy permissions on your phone and social apps.</li></ol></div>
+        </div>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+          <div class="muted">Official NPC materials and quick guides are available at the National Privacy Commission website.</div>
+          <a class="link" href="https://privacy.gov.ph/" target="_blank" rel="noopener">Visit NPC — privacy.gov.ph</a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="reveal">
+      <div>Made for netizens who want to keep the edge without getting burned.</div>
+      <div class="author">By Ferdinand Mark B. Peña</div>
+    </footer>
+  </main>
+
+  <script>
+    const btn = document.getElementById('modeToggle');
+    btn.addEventListener('click', ()=>{
+      document.body.classList.toggle('light');
+      if(document.body.classList.contains('light')){
+        btn.textContent='🌙 Dark Mode';
+      } else {
+        btn.textContent='☀️ Light Mode';
+      }
+    });
+  </script>
+</body>
+</html>

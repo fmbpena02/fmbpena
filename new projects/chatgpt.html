@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How to Use ChatGPT Effectively — A Guide by Ferdinand Mark B. Peña</title>
+  <link rel="shortcut icon" href="assets/img/roundbwlogo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#111a2e; --glass:rgba(255,255,255,0.05); --muted:#c0cbe0; --accent1:#7c3aed; --accent2:#06b6d4; --text:#f8faff;
+    }
+    body.light{--bg:#f8fbff;--panel:#ffffff;--glass:rgba(0,0,0,0.05);--muted:#334155;--text:#0b1220}
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:linear-gradient(180deg,var(--bg) 0%, #0b1a30 100%);-webkit-font-smoothing:antialiased}
+
+    .container{max-width:1100px;margin:36px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));box-shadow:0 14px 40px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .logo{display:flex;gap:12px;align-items:center}
+    .badge{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;transform:rotate(-8deg);box-shadow:0 10px 30px rgba(7,12,29,0.6)}
+    h1{font-family:'Space Grotesk',system-ui,Segoe UI,Roboto;margin:0;font-size:26px;line-height:1.2}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px;line-height:1.4}
+
+    .controls{display:flex;gap:12px;align-items:center}
+    .btn{padding:8px 14px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;cursor:pointer;font-weight:600;transition:0.2s}
+    .btn:hover{filter:brightness(1.2)}
+    .btn.ghost{background:transparent;border:1px solid var(--accent2);color:var(--accent2)}
+
+    .grid{display:grid;grid-template-columns:2fr 380px;gap:22px;margin-top:22px}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+    .panel{background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 22px rgba(2,6,23,0.5);line-height:1.6}
+    .panel h3{margin:0 0 10px 0;color:var(--accent2)}
+    .muted{color:var(--muted);font-size:13px}
+
+    .tips{display:grid;gap:12px}
+    .tip{padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07)}
+    .tip h4{margin:0 0 6px 0;font-size:15px;color:var(--accent1)}
+    .tip p{margin:0;color:var(--muted);font-size:13px}
+
+    .chat{display:flex;flex-direction:column;gap:12px}
+    .bubble{max-width:86%;padding:12px;border-radius:10px;background:rgba(124,58,237,0.15);border:1px solid rgba(255,255,255,0.05)}
+    .bubble.me{align-self:flex-end;background:rgba(6,182,212,0.2)}
+    .meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .code{display:block;padding:10px;background:rgba(0,0,0,0.25);border-radius:8px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;font-size:13px;color:var(--text);overflow:auto}
+
+    .accent-row{display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .pill{padding:8px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent2),var(--accent1));font-weight:700;color:#041022;font-size:13px}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+
+    @media (max-width:520px){.badge{width:56px;height:56px;font-size:18px}.controls{flex-direction:column;align-items:flex-end}.grid{gap:14px}}
+
+    .fadein{opacity:0;transform:translateY(12px);animation:fi 0.7s forwards}
+    .fadein.delay{animation-delay:0.12s}
+    @keyframes fi{to{opacity:1;transform:none}}
+
+    pre{white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="fadein">
+      <div class="logo">
+        <div class="badge">GPT</div>
+        <div>
+          <h1>How to Use ChatGPT Effectively — A Guide by Ferdinand Mark B. Peña</h1>
+          <p class="lead">Futuristic, blunt, and practical — learn how I make ChatGPT work like a ruthless thinking partner.</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="toggleMode" class="btn">🌙 Dark / Light</button>
+        <button id="copyExample" class="btn ghost">Copy Prompt Pack</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel fadein delay">
+        <h3>Core Philosophy</h3>
+        <p class="muted">Treat ChatGPT as a reasoning engine — not a parrot. Ask for structure, demand evidence, and push for edge-cases. Your job: craft precise prompts, then interrogate the answers.</p>
+
+        <div class="accent-row">
+          <div class="pill">Be Direct</div>
+          <div class="pill">Force Assumptions</div>
+          <div class="pill">Request Sources</div>
+        </div>
+
+        <h3>Prompt Formula — R.I.P.P.E.R.</h3>
+        <ul style="color:var(--muted)">
+          <li><strong>R</strong>ole — Define who ChatGPT should be (e.g., expert, interviewer).</li>
+          <li><strong>I</strong>ntent — State exactly what you want (summary, plan, critique).</li>
+          <li><strong>P</strong>recision — Data, tone, format, constraints.</li>
+          <li><strong>P</strong>rovide — Add examples, files, or prior outputs.</li>
+          <li><strong>E</strong>xpectation — Define success or evaluation.</li>
+          <li><strong>R</strong>efine — Iterate and challenge responses.</li>
+        </ul>
+
+        <h3>Sample Prompt</h3>
+        <pre class="code">Role: You are a PNP IT analyst.
+Intent: Draft 8 interview answers for a police applicant with an IT background.
+Precision: Each answer 40–60 words with references to RA 10173; tone: assertive.
+Provide: My CV (skills: networking, forensics, Python). Evaluate: 1–10 suitability.
+Refine: List 3 follow-up challenge questions per answer.
+</pre>
+
+        <h3>10 Tactical Tips</h3>
+        <div class="tips">
+          <div class="tip"><h4>1. Start with a role</h4><p>"Act as a cybersecurity consultant" focuses the model better than "Help me".</p></div>
+          <div class="tip"><h4>2. Give constraints</h4><p>Tell it length, format, tone — control the output early.</p></div>
+          <div class="tip"><h4>3. Force edge-cases</h4><p>Ask how a smart opponent or critic would respond.</p></div>
+          <div class="tip"><h4>4. Demand sources</h4><p>Ask for citations or confidence ratings.</p></div>
+          <div class="tip"><h4>5. Use examples</h4><p>Show a bad answer, then tell it to improve.</p></div>
+          <div class="tip"><h4>6. Iterate</h4><p>Request revision instead of restarting.</p></div>
+          <div class="tip"><h4>7. Ask for tests</h4><p>Make it quiz you to check comprehension.</p></div>
+          <div class="tip"><h4>8. Control verbosity</h4><p>Specify length explicitly to avoid walls of text.</p></div>
+          <div class="tip"><h4>9. Use system roles</h4><p>Set consistent behavior across prompts.</p></div>
+          <div class="tip"><h4>10. Be skeptical</h4><p>Cross-check everything time-sensitive or factual.</p></div>
+        </div>
+      </section>
+
+      <aside class="panel fadein delay">
+        <h3>Example Dialogue</h3>
+        <div class="chat">
+          <div class="bubble me"><strong>Prompt:</strong> "Act as a PNP interview coach. Produce 6 moral-dilemma answers. Tone: frank."</div>
+          <div class="bubble"><strong>ChatGPT:</strong> Returns concise, realistic answers.</div>
+          <div class="bubble me"><strong>Follow-up:</strong> "Now add 3 rebuttals and 20–30 word comebacks."</div>
+          <div class="bubble"><strong>ChatGPT:</strong> Adds rebuttals and short counterarguments.</div>
+        </div>
+
+        <h3>Prompt Pack</h3>
+        <pre class="code" id="promptPack">Role: You are a senior interviewer.
+Task: Create 6 moral-dilemma answers for a police applicant.
+Constraints: 40-60 words each, cite relevant law, tone: assertive.
+Follow-up: Add 3 likely pushback questions and rebuttals.
+</pre>
+      </aside>
+
+      <section class="panel fadein delay" style="grid-column:1/-1;margin-top:14px">
+        <h3>Quick Checklist</h3>
+        <div class="accent-row">
+          <div class="pill">Define Role</div>
+          <div class="pill">Set Constraints</div>
+          <div class="pill">Provide Examples</div>
+          <div class="pill">Ask for Sources</div>
+          <div class="pill">Iterate</div>
+        </div>
+        <p class="muted">Use ChatGPT like a gym partner for your brain — push, critique, and improve.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>By Ferdinand Mark B. Peña</div>
+      <div class="muted">Built for efficiency. Challenge everything.</div>
+    </footer>
+  </div>
+
+  <script>
+    const body=document.body;
+    const toggle=document.getElementById('toggleMode');
+    toggle.addEventListener('click',()=>body.classList.toggle('light'));
+  </script>
+</body>
+</html>
